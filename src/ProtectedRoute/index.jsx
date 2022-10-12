@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-
-const USER_ROLES = {
-    ADMIN: 'ADMIN',
-    STUDENT: 'STUDENT',
-    LECTURER: 'LECTURER',
-    GUEST: 'GUEST'
-}
-
-const ERROR_MESSAGE = "You are not authorized to this page. Please Login!"
+import { USER_ROLES } from '../utils/constants'
 
 function ProtectedRoute({ children }) {
 

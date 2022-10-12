@@ -21,17 +21,17 @@ function App() {
           <Routes>
             <Route path="/" element={<SignUp />} />
             <Route path="/dashboard" element={
-              <ProtectedRoute>
-                <StudentProtectedRoute>
-                  <Dashboard />
-                </StudentProtectedRoute>
-              </ProtectedRoute>
+              // <ProtectedRoute>
+              // <StudentProtectedRoute>
+              <Dashboard />
+              // </StudentProtectedRoute>
+              // </ProtectedRoute>
             } />
           </Routes>
         </BrowserRouter>
         <ToastContainer />
       </div>
-    </Provider>
+    </Provider >
   );
 }
 
