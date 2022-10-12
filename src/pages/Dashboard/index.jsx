@@ -20,6 +20,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Calendar from '../../components/Calendar';
+import FlexContainer from '../../components/FlexContainer';
 import GreetingHeader from '../../components/GreetingHeader';
 
 const DRAWER_ITEMS = [
@@ -202,6 +203,9 @@ export default function MiniDrawer() {
           <Grid item xs={7}>
             {/* Greeting */}
             <GreetingHeader />
+            <FlexContainer>
+              <Typography>Courses</Typography>
+            </FlexContainer>
           </Grid>
           <Grid item xs={5}>
             <Calendar />
