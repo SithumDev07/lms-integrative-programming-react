@@ -3,7 +3,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { Grid } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Grid } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,8 +20,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Calendar from '../../components/Calendar';
-import FlexContainer from '../../components/FlexContainer';
-import GreetingHeader from '../../components/GreetingHeader';
+import { GreetingHeader, FlexContainer, CustomizedButton, HighlightedCourse } from '../../components';
+import { HIGHLIGHTED_COURSES } from '../../data/courses';
 
 const DRAWER_ITEMS = [
   {
@@ -120,7 +120,9 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{
+        backgroundColor: theme.palette.primary
+      }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -200,15 +202,42 @@ export default function MiniDrawer() {
 
         {/* Content */}
         <Grid container>
-          <Grid item xs={7}>
+          <Grid item xs={7} sx={{
+            p: 1
+          }}>
             {/* Greeting */}
             <GreetingHeader />
-            <FlexContainer>
-              <Typography>Courses</Typography>
+            <FlexContainer sx={{
+              mt: 4
+            }}>
+              <Typography sx={{
+                color: theme.palette.grey[500],
+                fontSize: theme.typography.h4
+              }}>Courses</Typography>
+              <Button sx={{
+                fontSize: theme.typography.button
+              }}>See All</Button>
             </FlexContainer>
+
+            {/* Course Cards */}
+            <Box sx={{
+              mt: 2
+            }}>
+              {HIGHLIGHTED_COURSES.map(({ id, title, category }) => (
+                <HighlightedCourse key={`highlighted-course-${id}`} title={title} category={category} />
+              ))}
+            </Box>
           </Grid>
-          <Grid item xs={5}>
-            <Calendar />
+          <Grid item xs={5} sx={{
+            p: 1
+          }}>
+            {/* Calendar */}
+            <Box sx={{
+              borderRadius: 2,
+              overflow: 'hidden'
+            }}>
+              <Calendar />
+            </Box>
           </Grid>
         </Grid>
       </Box>
