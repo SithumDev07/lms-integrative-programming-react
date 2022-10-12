@@ -51,6 +51,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function GreetingHeader() {
 
     const loggedUserName = useSelector(state => state.login.name)
+    const lastLoggedIn = useSelector(state => state.login.lastLoggedIn)
 
     return (
         <FlexContainer>
@@ -60,7 +61,7 @@ function GreetingHeader() {
                 <CustomAvatar name={loggedUserName ? loggedUserName : "Something Went Wrong"} />
                 <Stack>
                     <Typography variant="h6">Sithum Basnayaka</Typography>
-                    <Typography variant='p'>Last Login</Typography>
+                    <Typography variant='p'>Last Login <span>{lastLoggedIn ? lastLoggedIn : "9th October, 2022. 08:35 PM"}</span></Typography>
                 </Stack>
             </FlexContainer>
             <Search>

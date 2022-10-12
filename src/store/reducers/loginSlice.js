@@ -8,6 +8,7 @@ export const loginSlice = createSlice({
     name: undefined,
     email: undefined,
     userRole: undefined,
+    lastLoggedIn: undefined,
   },
   reducers: {
     login: (state, action) => {
@@ -16,6 +17,7 @@ export const loginSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.userRole = action.payload.userRole;
+      state.lastLoggedIn = action.payload.lastLoggedIn;
     },
     logout: (state, action) => {
       state.isLoggedIn = false;
