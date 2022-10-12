@@ -9,6 +9,10 @@ import Calendar from '../../components/Calendar';
 import { HIGHLIGHTED_COURSES } from '../../data/courses';
 import { AppBar as CustomAppBar, CustomDrawer } from '../../lib';
 import { DrawerHeader } from '../../lib/CustomDrawer';
+import { store } from '../../store'
+import { showAlert } from '../../store/reducers/errorSlice'
+import { login } from '../../store/reducers/loginSlice'
+import { TOASTIFY_ERROR_FONTS } from '../../utils/constants';
 
 export default function MiniDrawer() {
   const theme = useTheme();
@@ -40,6 +44,22 @@ export default function MiniDrawer() {
               }}>Courses</Typography>
               <Button sx={{
                 fontSize: theme.typography.button
+              }} onClick={() => {
+                store.dispatch(showAlert({
+                  shouldShow: true,
+                  message: "Heyyyyy",
+                  type: TOASTIFY_ERROR_FONTS.WARNING,
+                  autoClose: 400
+                }));
+
+                store.dispatch(login({
+                  isLoggedIn: true,
+                  userId: 1,
+                  name: "Theruni Kavindya",
+                  email: 'theruni@gmail.com',
+                  userRole: "ADMIN",
+                  lastLoggedIn: new Date().toUTCString(),
+                }))
               }}>See All</Button>
             </FlexContainer>
 

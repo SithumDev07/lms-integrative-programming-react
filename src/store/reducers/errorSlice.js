@@ -6,12 +6,14 @@ export const errorSlice = createSlice({
     shouldShow: false,
     message: undefined,
     type: undefined,
+    autoClose: undefined,
   },
   reducers: {
     showAlert: (state, action) => {
       state.message = action.payload.message;
       state.shouldShow = true;
       state.type = action.payload.type;
+      state.autoClose = action.payload.autoClose;
     },
   },
 });

@@ -60,7 +60,7 @@ function GreetingHeader() {
             }}>
                 <CustomAvatar name={loggedUserName ? loggedUserName : "Something Went Wrong"} />
                 <Stack>
-                    <Typography variant="h6">Sithum Basnayaka</Typography>
+                    <Typography variant="h6">{loggedUserName ? loggedUserName : ""}</Typography>
                     <Typography variant='p'>Last Login <span>{lastLoggedIn ? lastLoggedIn : "9th October, 2022. 08:35 PM"}</span></Typography>
                 </Stack>
             </FlexContainer>
