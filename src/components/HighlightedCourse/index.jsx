@@ -1,14 +1,16 @@
 import { Card, CardContent, CardMedia, Typography, useTheme } from '@mui/material'
 import React from 'react'
 
-function HighlightedCourse({ title, category }) {
+function HighlightedCourse({ title, category, clickHandler }) {
     const theme = useTheme()
     return (
         <Card
             sx={{
                 display: 'flex',
-                mb: 2
-            }}>
+                mb: 2,
+                cursor: 'pointer'
+            }}
+            onClick={clickHandler}>
             <CardMedia
                 component="img"
                 image="https://www.smartpassiveincome.com/wp-content/uploads/2020/04/How-to-Create-an-Online-Course.png"

@@ -14,8 +14,12 @@ const DRAWER_ITEMS = [
         title: "Enrolled Courses"
     },
     {
-        id: 1,
+        id: 3,
         title: "Profile"
+    },
+    {
+        id: 4,
+        title: "Grades"
     },
 ]
 

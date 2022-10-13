@@ -13,11 +13,13 @@ import { store } from '../../store'
 import { showAlert } from '../../store/reducers/errorSlice'
 import { login } from '../../store/reducers/loginSlice'
 import { TOASTIFY_ERROR_FONTS } from '../../utils/constants';
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function MiniDrawer() {
   const theme = useTheme();
 
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate()
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -41,7 +43,7 @@ export default function MiniDrawer() {
               <Typography sx={{
                 color: theme.palette.grey[500],
                 fontSize: theme.typography.h4
-              }}>Courses</Typography>
+              }}>New & Recommended</Typography>
               <Button sx={{
                 fontSize: theme.typography.button
               }} onClick={() => {
@@ -55,8 +57,8 @@ export default function MiniDrawer() {
                 store.dispatch(login({
                   isLoggedIn: true,
                   userId: 1,
-                  name: "Theruni Kavindya",
-                  email: 'theruni@gmail.com',
+                  name: "Sithum Basnyaka",
+                  email: 'sithum@gmail.com',
                   userRole: "ADMIN",
                   lastLoggedIn: new Date().toUTCString(),
                 }))
@@ -65,7 +67,31 @@ export default function MiniDrawer() {
 
             {/* Course Cards */}
             <Box sx={{
-              mt: 2
+              mt: 2,
+            }}>
+              {HIGHLIGHTED_COURSES.map(({ id, title, category }) => (
+                <HighlightedCourse clickHandler={() => navigate(`/courses/${id}`, {
+                  replace: true
+                })} key={`highlighted-course-${id}`} title={title} category={category} />
+              ))}
+            </Box>
+
+            {/* Enrolled Courses */}
+            <FlexContainer sx={{
+              mt: 4
+            }}>
+              <Typography sx={{
+                color: theme.palette.grey[500],
+                fontSize: theme.typography.h4
+              }}>Enrolled Courses</Typography>
+              <Button sx={{
+                fontSize: theme.typography.button
+              }}>See All</Button>
+            </FlexContainer>
+
+            {/* Course Cards */}
+            <Box sx={{
+              mt: 2,
             }}>
               {HIGHLIGHTED_COURSES.map(({ id, title, category }) => (
                 <HighlightedCourse key={`highlighted-course-${id}`} title={title} category={category} />
@@ -78,7 +104,9 @@ export default function MiniDrawer() {
             {/* Calendar */}
             <Box sx={{
               borderRadius: 2,
-              overflow: 'hidden'
+              overflow: 'hidden',
+              position: 'sticky',
+              top: '5rem'
             }}>
               <Calendar />
             </Box>

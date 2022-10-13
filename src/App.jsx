@@ -7,6 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./pages/Dashboard";
 import SignUp from "./pages/Register/signup";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
+import Announcement from './pages/Announcements'
+import ProtectedRoute, { LecturerProtectedRoute, StudentProtectedRoute } from './ProtectedRoute'
+import Courses from './pages/Courses'
+import Course from './pages/Course'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -50,16 +55,20 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/dashboard" element={
-            // <ProtectedRoute>
-            // <StudentProtectedRoute>
+            //<ProtectedRoute>
+            //<StudentProtectedRoute>
             <Dashboard />
-            // </StudentProtectedRoute>
-            // </ProtectedRoute>
+            //</Routes></StudentProtectedRoute>
+            //</ProtectedRoute>
           } />
+          <Route path="courses" element={<Courses />} />
+          <Route path="courses/:courseId" element={<Course />} />
+          <Route path="/announcement" element={<Announcement />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-    </div>
+    </div >
   );
 }
 

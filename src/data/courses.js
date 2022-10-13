@@ -9,4 +9,9 @@ export const HIGHLIGHTED_COURSES = [
     title: "Programing Concepts",
     category: "Information Technology",
   },
+  {
+    id: 3,
+    title: "Advance Web Development",
+    category: "Information Technology",
+  },
 ];
