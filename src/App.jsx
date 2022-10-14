@@ -4,8 +4,12 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Announcement from "./pages/Announcements";
+import Course from "./pages/Course";
+import Courses from "./pages/Courses";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login/login";
+import NotFound from "./pages/NotFound";
 import SignUp from "./pages/Register/signup";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
 
