@@ -4,14 +4,13 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Announcement from './pages/Announcements';
+import Course from './pages/Course';
+import Courses from './pages/Courses';
 import Dashboard from "./pages/Dashboard";
+import NotFound from './pages/NotFound';
 import SignUp from "./pages/Register/signup";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
-import Announcement from './pages/Announcements'
-import ProtectedRoute, { LecturerProtectedRoute, StudentProtectedRoute } from './ProtectedRoute'
-import Courses from './pages/Courses'
-import Course from './pages/Course'
-import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -71,5 +70,7 @@ function App() {
     </div >
   );
 }
+
+
 
 export default App;
