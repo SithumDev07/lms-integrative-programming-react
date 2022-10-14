@@ -28,7 +28,9 @@ export default function Dashboard() {
   useEffect(() => {
     (async () => {
       let response = await CourseService.getAllCourses()
-      console.log(response)
+      if (response.status === 202) {
+        setAllCourseData(response.data)
+      }
     })();
   }, [])
 
@@ -80,10 +82,10 @@ export default function Dashboard() {
             <Box sx={{
               mt: 2,
             }}>
-              {HIGHLIGHTED_COURSES.map(({ id, title, category }) => (
+              {allCourseData.map(({ id, courseName, courseCategory, startDate }) => (
                 <HighlightedCourse clickHandler={() => navigate(`/courses/${id}`, {
                   replace: true
-                })} key={`highlighted-course-${id}`} title={title} category={category} />
+                })} key={`highlighted-course-${id}`} title={courseName} category={courseCategory?.name} startDate={startDate} />
               ))}
             </Box>
 
