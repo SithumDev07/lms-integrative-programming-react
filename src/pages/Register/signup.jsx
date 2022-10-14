@@ -20,16 +20,14 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      Group G {" "}
-      {new Date().getFullYear()}
+      Group G {new Date().getFullYear()}
       {"."}
     </Typography>
   );
 }
 
 export default function SignUp() {
-
-  const theme = useTheme()
+  const theme = useTheme();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,12 +55,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Box
-          component="form"
-          noValidate
-          onSubmit={handleSubmit}
-          sx={{ mt: 3 }}
-        >
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -99,6 +92,26 @@ export default function SignUp() {
               <TextField
                 required
                 fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="studentId"
+                label="Student ID"
+                name="studentId"
+                autoComplete="studentId"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                fullWidth
                 name="password"
                 label="Password"
                 type="password"
@@ -106,7 +119,17 @@ export default function SignUp() {
                 autoComplete="new-password"
               />
             </Grid>
-
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                fullWidth
+                name="confirmPassword"
+                label="Confirm Password"
+                type="confirmPassword"
+                id="confirmPassword"
+                autoComplete="confirm-password"
+              />
+            </Grid>
           </Grid>
           <Button
             type="submit"
