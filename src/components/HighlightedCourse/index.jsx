@@ -1,7 +1,7 @@
-import { Card, CardContent, CardMedia, Typography, useTheme } from '@mui/material'
+import { Box, Card, CardContent, CardMedia, Typography, useTheme } from '@mui/material'
 import React from 'react'
 
-function HighlightedCourse({ title, category, clickHandler }) {
+function HighlightedCourse({ title, category, clickHandler, startDate }) {
     const theme = useTheme()
     return (
         <Card
@@ -19,9 +19,22 @@ function HighlightedCourse({ title, category, clickHandler }) {
                     height: '100%'
                 }} />
             <CardContent>
-                <Typography sx={{
-                    fontSize: theme.typography.caption
-                }}>{category}</Typography>
+                <Box sx={{
+                    display: 'flex',
+                    gap: 4
+                }}>
+                    <Typography sx={{
+                        fontSize: theme.typography.caption
+                    }}>{category}</Typography>
+                    <Box sx={{
+                        w: 1,
+                        h: 1,
+                        backgroundColor: theme.palette.grey[100]
+                    }} />
+                    <Typography sx={{
+                        fontSize: theme.typography.caption
+                    }}>{startDate}</Typography>
+                </Box>
                 <Typography sx={{
                     fontSize: theme.typography.h5
                 }}>{title}</Typography>

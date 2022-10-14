@@ -93,8 +93,8 @@ export default function MiniDrawer() {
             <Box sx={{
               mt: 2,
             }}>
-              {HIGHLIGHTED_COURSES.map(({ id, title, category }) => (
-                <HighlightedCourse key={`highlighted-course-${id}`} title={title} category={category} />
+              {HIGHLIGHTED_COURSES.map(({ id, title, category, startDate }) => (
+                <HighlightedCourse key={`highlighted-course-${id}`} startDate={startDate} title={title} category={category} />
               ))}
             </Box>
           </Grid>
