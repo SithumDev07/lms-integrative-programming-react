@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Announcement from './pages/Announcements';
+import Course from './pages/Course';
+import Courses from './pages/Courses';
 import Dashboard from "./pages/Dashboard";
+import NotFound from './pages/NotFound';
 import SignUp from "./pages/Register/signup";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
 
@@ -50,17 +54,23 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/dashboard" element={
-            // <ProtectedRoute>
-            // <StudentProtectedRoute>
+            //<ProtectedRoute>
+            //<StudentProtectedRoute>
             <Dashboard />
-            // </StudentProtectedRoute>
-            // </ProtectedRoute>
+            //</Routes></StudentProtectedRoute>
+            //</ProtectedRoute>
           } />
+          <Route path="courses" element={<Courses />} />
+          <Route path="courses/:courseId" element={<Course />} />
+          <Route path="/announcement" element={<Announcement />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-    </div>
+    </div >
   );
 }
+
+
 
 export default App;
