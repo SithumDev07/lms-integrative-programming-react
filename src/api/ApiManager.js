@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { store } from "../store";
 import { showAlert } from "../store/reducers/errorSlice";
-import { ALERT_tYPES, TOASTIFY_ERROR_FONTS } from "../utils/constants";
+import { TOASTIFY_ERROR_FONTS } from "../utils/constants";
 
 const errorHandling = (error) => {
   const { response } = error;
@@ -11,7 +11,7 @@ const errorHandling = (error) => {
     showAlert({
       message: response.data.message,
       isVisible: true,
-      severity: ALERT_tYPES.error,
+      severity: TOASTIFY_ERROR_FONTS.ERROR,
     }),
   );
 
