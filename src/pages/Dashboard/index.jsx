@@ -4,22 +4,33 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CourseService from '../../api/service/CourseService';
 import { FlexContainer, GreetingHeader, HighlightedCourse } from '../../components';
 import Calendar from '../../components/Calendar';
 import { HIGHLIGHTED_COURSES } from '../../data/courses';
 import { AppBar as CustomAppBar, CustomDrawer } from '../../lib';
 import { DrawerHeader } from '../../lib/CustomDrawer';
-import { store } from '../../store'
-import { showAlert } from '../../store/reducers/errorSlice'
-import { login } from '../../store/reducers/loginSlice'
+import { store } from '../../store';
+import { showAlert } from '../../store/reducers/errorSlice';
+import { login } from '../../store/reducers/loginSlice';
 import { TOASTIFY_ERROR_FONTS } from '../../utils/constants';
-import { Link, useNavigate } from 'react-router-dom'
 
-export default function MiniDrawer() {
+export default function Dashboard() {
   const theme = useTheme();
 
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
+
+  const [allCourseData, setAllCourseData] = React.useState([])
+
+  useEffect(() => {
+    (async () => {
+      let response = await CourseService.getAllCourses()
+      console.log(response)
+    })();
+  }, [])
 
   return (
     <Box sx={{ display: 'flex' }}>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import CourseService from '../../api/service/CourseService'
 
 function Course() {
 
@@ -18,8 +19,12 @@ function Course() {
 
     useEffect(() => {
 
-        (async () => {
-        })();
+        if (courseId)
+
+            (async () => {
+                let response = await CourseService.getCourseById(courseId);
+                console.log(response);
+            })();
 
     }, [courseId])
 
