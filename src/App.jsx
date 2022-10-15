@@ -20,6 +20,7 @@ import ProtectedRoute, {
   SuperAdminProtectedRoute,
 } from "./ProtectedRoute";
 import TeacherDashboard from "./pages/TeacherDashboard";
+import Evaluate from "./pages/Evaluate";
 function App() {
   const isToastifyVisible = useSelector((state) => state.error.shouldShow);
   const toastifyMessage = useSelector((state) => state.error.message);
@@ -101,6 +102,7 @@ function App() {
           <Route path="/announcement" element={<Announcement />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/teachdash" element={<TeacherDashboard />} />
+          <Route path="/evaluate" element={<Evaluate />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

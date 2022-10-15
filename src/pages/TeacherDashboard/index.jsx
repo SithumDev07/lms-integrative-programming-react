@@ -16,7 +16,7 @@ import { store } from "../../store";
 import { showAlert } from "../../store/reducers/errorSlice";
 import { login } from "../../store/reducers/loginSlice";
 import { TOASTIFY_ERROR_FONTS } from "../../utils/constants";
-
+import StatBox from "../../components/StatBox";
 export default function TeacherDashboard() {
   const theme = useTheme();
 
@@ -33,7 +33,7 @@ export default function TeacherDashboard() {
       <CustomDrawer open={open} setOpen={setOpen} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-
+        <StatBox></StatBox>
         {/* Content */}
         <Grid container>
           <Grid
@@ -85,7 +85,7 @@ export default function TeacherDashboard() {
                   fontSize: theme.typography.h4,
                 }}
               >
-                My Courses
+                Enroll Courses
               </Typography>
               <Button
                 sx={{
