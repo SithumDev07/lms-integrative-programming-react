@@ -16,30 +16,34 @@ import { store } from '../../store';
 import { showAlert } from '../../store/reducers/errorSlice';
 import { login } from '../../store/reducers/loginSlice';
 import { TOASTIFY_ERROR_FONTS } from '../../utils/constants';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Dashboard() {
   const theme = useTheme();
 
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
-    const accessToken = useSelector((state) => state.login.accessToken)
 
   const [allCourseData, setAllCourseData] = React.useState([])
 
+  const accessToken = useSelector((state) => state.login.accessToken)
+
   useEffect(() => {
-      let config = {
-          headers: {
-              'Authorization': `Bearer ${accessToken}`,
-          }
-      }
+
+    console.log("here ", accessToken);
+
     (async () => {
-        let response = await CourseService.getAllCourses(config)
+      let config = {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        }
+      }
+      let response = await CourseService.getAllCourses(config)
       if (response.status === 202) {
         setAllCourseData(response.data)
       }
     })();
-  }, [])
+  }, [accessToken])
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -121,7 +125,6 @@ export default function Dashboard() {
           <Grid item xs={5} sx={{
             p: 1
           }}>
-            {/* Calendar */}
             <Box sx={{
               borderRadius: 2,
               overflow: 'hidden',

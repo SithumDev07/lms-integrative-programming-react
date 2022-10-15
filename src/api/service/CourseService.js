@@ -2,7 +2,13 @@ import ApiManager from "../ApiManager";
 
 class CourseService {
   async getAllCourses(config) {
-      return await ApiManager.apiGET("/api/v1/course", config);
+    return await ApiManager.apiPOST(
+      "/api/v1/course",
+      {
+        type: "all",
+      },
+      config,
+    );
   }
 
   async getCourseById(id) {
@@ -10,7 +16,7 @@ class CourseService {
   }
 
   async saveCourse(courseDetails) {
-    return await ApiManager.apiPOST("/api/v1/course", courseDetails);
+    return await ApiManager.apiPOST("/api/v1/course/save", courseDetails);
   }
 }
 

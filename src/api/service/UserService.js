@@ -9,8 +9,8 @@ class UserService {
     return await apiManager.apiPOST("/register", registerInfo);
   }
 
-    async getUser(userInfo, config) {
-      return await apiManager.apiPOST("/api/v1/user/get", userInfo, config);
+  async getUser(userInfo, config) {
+    return await apiManager.apiPOST("/api/v1/user/get", userInfo, config);
   }
 }
 
