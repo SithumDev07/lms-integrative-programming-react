@@ -10,6 +10,7 @@ import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import ApiManager from "../../api/ApiManager";
 
 function Copyright(props) {
   return (
@@ -34,23 +35,13 @@ const handleSubmit = (event) => {
     username: data.get("username"),
     password: data.get("password"),
   });
-  fetch("http://localhost:9000/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username: data.get("username"),
-      password: data.get("password"),
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+
+  const body = {
+    username: data.get("username"),
+    password: data.get("password"),
+  };
+
+  ApiManager.apiPOST("/api/login", body);
 };
 
 export default function Login() {
