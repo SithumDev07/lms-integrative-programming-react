@@ -13,6 +13,7 @@ import SignUp from "./pages/Register/signup";
 import Login from "./pages/Login";
 import Evaluate from "./pages/Evaluate";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
+import TeacherDashboard from "./pages/TeacherDashboard";
 
 function App() {
   const isToastifyVisible = useSelector((state) => state.error.shouldShow);
@@ -77,6 +78,7 @@ function App() {
           <Route path="courses/:courseId" element={<Course />} />
           <Route path="/announcement" element={<Announcement />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/teacherDash" element={<TeacherDashboard />} />
           <Route path="/evaluate" element={<Evaluate />} />
         </Routes>
       </BrowserRouter>
