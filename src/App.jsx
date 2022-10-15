@@ -1,5 +1,5 @@
 import "@fontsource/poppins";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -11,9 +11,14 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import SignUp from "./pages/Register/signup";
 import Login from "./pages/Login";
-import Evaluate from "./pages/Evaluate";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
-import TeacherDashboard from "./pages/TeacherDashboard";
+import { store } from "./store";
+import { logout, tokenSetter } from "./store/reducers/loginSlice";
+import ProtectedRoute, {
+  LecturerProtectedRoute,
+  StudentProtectedRoute,
+  SuperAdminProtectedRoute,
+} from "./ProtectedRoute";
 
 function App() {
   const isToastifyVisible = useSelector((state) => state.error.shouldShow);
@@ -58,6 +63,23 @@ function App() {
       }
   }, [isToastifyVisible, toastifyMessage, toastifyType]);
 
+  // Setting token
+  const [token, setToken] = useState();
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+
+    if (token) {
+      store.dispatch(
+        tokenSetter({
+          isLoggedIn: true,
+          accessToken: token,
+        })
+      );
+    } else {
+      store.dispatch(logout({}));
+    }
+  }, [token]);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -67,19 +89,17 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              //<ProtectedRoute>
-              //<StudentProtectedRoute>
-              <Dashboard />
-              //</Routes></StudentProtectedRoute>
-              //</ProtectedRoute>
+              <ProtectedRoute>
+                <StudentProtectedRoute>
+                  <Dashboard />
+                </StudentProtectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
           <Route path="/announcement" element={<Announcement />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/teacherDash" element={<TeacherDashboard />} />
-          <Route path="/evaluate" element={<Evaluate />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

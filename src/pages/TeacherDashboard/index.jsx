@@ -1,10 +1,25 @@
-import * as React from "react";
+import { Button, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import * as React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import CourseService from "../../api/service/CourseService";
+import {
+  FlexContainer,
+  GreetingHeader,
+  HighlightedCourse,
+} from "../../components";
+import Calendar from "../../components/Calendar";
+import { HIGHLIGHTED_COURSES } from "../../data/courses";
+import { AppBar as CustomAppBar, CustomDrawer } from "../../lib";
+import { DrawerHeader } from "../../lib/CustomDrawer";
+import { store } from "../../store";
+import { showAlert } from "../../store/reducers/errorSlice";
+import { login } from "../../store/reducers/loginSlice";
+import { TOASTIFY_ERROR_FONTS } from "../../utils/constants";
 
 const bull = (
   <Box

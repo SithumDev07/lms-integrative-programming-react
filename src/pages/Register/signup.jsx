@@ -10,6 +10,7 @@ import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { Link as RouterLink } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -118,7 +119,7 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link component={RouterLink} to="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

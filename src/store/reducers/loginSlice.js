@@ -9,6 +9,7 @@ export const loginSlice = createSlice({
     email: undefined,
     userRole: undefined,
     lastLoggedIn: undefined,
+    accessToken: undefined,
   },
   reducers: {
     login: (state, action) => {
@@ -18,6 +19,7 @@ export const loginSlice = createSlice({
       state.email = action.payload.email;
       state.userRole = action.payload.userRole;
       state.lastLoggedIn = action.payload.lastLoggedIn;
+      state.accessToken = action.payload.accessToken;
     },
     logout: (state, action) => {
       state.isLoggedIn = false;
@@ -25,9 +27,14 @@ export const loginSlice = createSlice({
       state.name = undefined;
       state.email = undefined;
       state.userRole = undefined;
+      state.accessToken = undefined;
+    },
+    tokenSetter: (state, action) => {
+      state.isLoggedIn = true;
+      state.accessToken = action.payload.accessToken;
     },
   },
 });
 
-export const { login, logout } = loginSlice.actions;
+export const { login, logout, tokenSetter } = loginSlice.actions;
 export default loginSlice.reducer;

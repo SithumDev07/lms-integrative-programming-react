@@ -62,19 +62,20 @@ class ApiService {
     },
   });
 
-  async apiGET(path) {
+  async apiGET(path, config) {
     const response = await this.http
-      .get(path)
+      .get(path, {}, config)
       .then((response) => responseHandling(response))
       .catch((error) => errorHandling(error));
 
     return response;
   }
 
-  async apiPOST(path, body) {
+  async apiPOST(path, body, config) {
     const json = JSON.stringify(body);
+    console.log("body", body);
     const response = await this.http
-      .post(path, json)
+      .post(path, json, config)
       .then((response) => responseHandling(response))
       .catch((error) => errorHandling(error));
 
