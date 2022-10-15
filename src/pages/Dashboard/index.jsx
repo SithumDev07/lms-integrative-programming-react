@@ -16,18 +16,25 @@ import { store } from '../../store';
 import { showAlert } from '../../store/reducers/errorSlice';
 import { login } from '../../store/reducers/loginSlice';
 import { TOASTIFY_ERROR_FONTS } from '../../utils/constants';
+import {useSelector} from "react-redux";
 
 export default function Dashboard() {
   const theme = useTheme();
 
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
+    const accessToken = useSelector((state) => state.login.accessToken)
 
   const [allCourseData, setAllCourseData] = React.useState([])
 
   useEffect(() => {
+      let config = {
+          headers: {
+              'Authorization': `Bearer ${accessToken}`,
+          }
+      }
     (async () => {
-      let response = await CourseService.getAllCourses()
+        let response = await CourseService.getAllCourses(config)
       if (response.status === 202) {
         setAllCourseData(response.data)
       }

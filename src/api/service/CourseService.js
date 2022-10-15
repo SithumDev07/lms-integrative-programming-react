@@ -1,8 +1,8 @@
 import ApiManager from "../ApiManager";
 
 class CourseService {
-  async getAllCourses() {
-    return await ApiManager.apiGET("/api/v1/course");
+  async getAllCourses(config) {
+      return await ApiManager.apiGET("/api/v1/course", config);
   }
 
   async getCourseById(id) {
