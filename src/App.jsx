@@ -4,24 +4,27 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Announcement from './pages/Announcements';
-import Course from './pages/Course';
-import Courses from './pages/Courses';
+import Announcement from "./pages/Announcements";
+import Course from "./pages/Course";
+import Courses from "./pages/Courses";
 import Dashboard from "./pages/Dashboard";
-import NotFound from './pages/NotFound';
+import NotFound from "./pages/NotFound";
 import SignUp from "./pages/Register/signup";
-import Login from './pages/Login'
+import Login from "./pages/Login";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
 import { store } from "./store";
 import { logout, tokenSetter } from "./store/reducers/loginSlice";
-import ProtectedRoute, { LecturerProtectedRoute, StudentProtectedRoute, SuperAdminProtectedRoute } from './ProtectedRoute'
+import ProtectedRoute, {
+  LecturerProtectedRoute,
+  StudentProtectedRoute,
+  SuperAdminProtectedRoute,
+} from "./ProtectedRoute";
 
 function App() {
-
-  const isToastifyVisible = useSelector((state) => state.error.shouldShow)
-  const toastifyMessage = useSelector(state => state.error.message)
-  const toastifyType = useSelector((state) => state.error.type)
-  const toastifyAutoClose = useSelector((state) => state.error.autoClose)
+  const isToastifyVisible = useSelector((state) => state.error.shouldShow);
+  const toastifyMessage = useSelector((state) => state.error.message);
+  const toastifyType = useSelector((state) => state.error.type);
+  const toastifyAutoClose = useSelector((state) => state.error.autoClose);
 
   const toastStyles = {
     position: "top-right",
@@ -32,43 +35,50 @@ function App() {
     draggable: false,
     progress: undefined,
     theme: "dark",
-  }
+  };
 
   useEffect(() => {
     if (isToastifyVisible)
       switch (toastifyType) {
         case TOASTIFY_ERROR_FONTS.ERROR:
-          toast.error(toastifyMessage, { ...toastStyles, autoClose: toastifyAutoClose });
+          toast.error(toastifyMessage, {
+            ...toastStyles,
+            autoClose: toastifyAutoClose,
+          });
           break;
         case TOASTIFY_ERROR_FONTS.WARNING:
-          toast.warn(toastifyMessage, { ...toastStyles, autoClose: toastifyAutoClose });
+          toast.warn(toastifyMessage, {
+            ...toastStyles,
+            autoClose: toastifyAutoClose,
+          });
           break;
         case TOASTIFY_ERROR_FONTS.SUCCESS:
-          toast.success(toastifyMessage, { ...toastStyles, autoClose: toastifyAutoClose });
+          toast.success(toastifyMessage, {
+            ...toastStyles,
+            autoClose: toastifyAutoClose,
+          });
           break;
         default:
           break;
       }
-
-  }, [isToastifyVisible, toastifyMessage, toastifyType])
+  }, [isToastifyVisible, toastifyMessage, toastifyType]);
 
   // Setting token
-  const [token, setToken] = useState()
+  const [token, setToken] = useState();
   useEffect(() => {
-    setToken(localStorage.getItem("token"))
+    setToken(localStorage.getItem("token"));
 
     if (token) {
-      store.dispatch(tokenSetter({
-        isLoggedIn: true,
-        accessToken: token
-      }))
+      store.dispatch(
+        tokenSetter({
+          isLoggedIn: true,
+          accessToken: token,
+        })
+      );
     } else {
-      store.dispatch(logout({
-      }))
+      store.dispatch(logout({}));
     }
-
-
-  }, [token])
+  }, [token]);
 
   return (
     <div className="App">
@@ -76,13 +86,16 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={
-            <ProtectedRoute>
-              <StudentProtectedRoute>
-                <Dashboard />
-              </StudentProtectedRoute>
-            </ProtectedRoute>
-          } />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <StudentProtectedRoute>
+                  <Dashboard />
+                </StudentProtectedRoute>
+              </ProtectedRoute>
+            }
+          />
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
           <Route path="/announcement" element={<Announcement />} />
@@ -90,10 +103,8 @@ function App() {
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-    </div >
+    </div>
   );
 }
-
-
 
 export default App;
