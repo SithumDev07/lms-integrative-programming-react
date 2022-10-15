@@ -10,6 +10,7 @@ import Courses from './pages/Courses';
 import Dashboard from "./pages/Dashboard";
 import NotFound from './pages/NotFound';
 import SignUp from "./pages/Register/signup";
+import Login from './pages/Login'
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={
             //<ProtectedRoute>
             //<StudentProtectedRoute>
