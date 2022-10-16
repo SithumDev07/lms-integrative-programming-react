@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Announcement from './pages/Announcements';
+import Announcement from './pages/CreateAnnouncements';
 import Course from './pages/Course';
 import Courses from './pages/Courses';
 import Dashboard from "./pages/Dashboard";
@@ -63,6 +63,7 @@ function App() {
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
           <Route path="/announcement" element={<Announcement />} />
+          <Route path="/createannouncement" element={<Announcement />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
