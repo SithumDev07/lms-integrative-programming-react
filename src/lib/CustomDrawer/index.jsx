@@ -13,15 +13,18 @@ const DRAWER_ITEMS = [
     },
     {
         id: 2,
-        title: "Enrolled Courses"
+        title: "Announcements",
+        path: "/announcement"
     },
     {
         id: 3,
-        title: "Profile"
+        title: "Evaluations",
+        path: "/evaluate"
     },
     {
         id: 4,
-        title: "Grades"
+        title: "Grades",
+        path: "/grades"
     },
 ]
 
