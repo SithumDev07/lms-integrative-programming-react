@@ -4,18 +4,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CourseService from "../../api/service/CourseService";
 import { FlexContainer, HighlightedCourse } from "../../components";
 //import Calendar from "../../components/Calendar";
 import { HIGHLIGHTED_COURSES } from "../../data/courses";
 import { AppBar as CustomAppBar, CustomDrawer } from "../../lib";
 import { DrawerHeader } from "../../lib/CustomDrawer";
-import { store } from "../../store";
-import { showAlert } from "../../store/reducers/errorSlice";
-import { login } from "../../store/reducers/loginSlice";
-import { TOASTIFY_ERROR_FONTS } from "../../utils/constants";
 import StatBox from "../../components/StatBox";
 export default function TeacherDashboard() {
   const theme = useTheme();
