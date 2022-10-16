@@ -33,7 +33,7 @@ export default function TeacherDashboard() {
       <CustomDrawer open={open} setOpen={setOpen} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <StatBox></StatBox>
+
         {/* Content */}
         <Grid container>
           <Grid
@@ -43,6 +43,7 @@ export default function TeacherDashboard() {
               p: 1,
             }}
           >
+            <StatBox></StatBox>
             {/* Greeting */}
             <FlexContainer
               sx={{
@@ -85,7 +86,7 @@ export default function TeacherDashboard() {
                   fontSize: theme.typography.h4,
                 }}
               >
-                Enroll Courses
+                My Courses
               </Typography>
               <Button
                 sx={{
