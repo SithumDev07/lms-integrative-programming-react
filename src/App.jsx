@@ -24,6 +24,9 @@ import ProtectedRoute, {
   StudentProtectedRoute,
   SuperAdminProtectedRoute,
 } from "./ProtectedRoute";
+import TeacherDashboard from "./pages/TeacherDashboard";
+import Evaluate from "./pages/EditMarks";
+import TeacherCourse from "./pages/TeacherCourse";
 
 
 function App() {
@@ -109,6 +112,9 @@ function App() {
           <Route path="/createannouncement" element={<Announcement />} />
           <Route path="/announcement" element={<AnnouncementsMain />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/teachdash" element={<TeacherDashboard />} />
+          <Route path="/evaluate" element={<Evaluate />} />
+          <Route path="/teachercourse" element={<TeacherCourse />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
