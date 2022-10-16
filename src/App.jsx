@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Announcement from "./pages/Announcements";
+
+import Announcement from './pages/CreateAnnouncements';
+
 import Course from "./pages/Course";
 import Courses from "./pages/Courses";
 import Dashboard from "./pages/Dashboard";
@@ -12,6 +14,9 @@ import NotFound from "./pages/NotFound";
 import SignUp from "./pages/Register/signup";
 import Login from "./pages/Login";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
+
+import AnnouncementsMain from "./pages/Announcements";
+
 import { store } from "./store";
 import { logout, tokenSetter } from "./store/reducers/loginSlice";
 import ProtectedRoute, {
@@ -19,6 +24,11 @@ import ProtectedRoute, {
   StudentProtectedRoute,
   SuperAdminProtectedRoute,
 } from "./ProtectedRoute";
+import Portal from "./pages/Portal";
+import TeacherDashboard from "./pages/TeacherDashboard";
+import Evaluate from "./pages/EditMarks";
+import TeacherCourse from "./pages/TeacherCourse";
+
 
 function App() {
   const isToastifyVisible = useSelector((state) => state.error.shouldShow);
@@ -100,8 +110,13 @@ function App() {
           />
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
-          <Route path="/announcement" element={<Announcement />} />
+          <Route path="/portal" element={<Portal />} />
+          <Route path="/createannouncement" element={<Announcement />} />
+          <Route path="/announcement" element={<AnnouncementsMain />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/teachdash" element={<TeacherDashboard />} />
+          <Route path="/evaluate" element={<Evaluate />} />
+          <Route path="/teachercourse" element={<TeacherCourse />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
