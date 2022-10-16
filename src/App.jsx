@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from './pages/NotFound';
 import SignUp from "./pages/Register/signup";
 import { TOASTIFY_ERROR_FONTS } from "./utils/constants";
+import AnnouncementsMain from "./pages/Announcements";
 
 function App() {
 
@@ -62,8 +63,8 @@ function App() {
           } />
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
-          <Route path="/announcement" element={<Announcement />} />
           <Route path="/createannouncement" element={<Announcement />} />
+          <Route path="/announcement" element={<AnnouncementsMain />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
