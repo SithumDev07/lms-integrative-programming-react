@@ -1,6 +1,6 @@
 import { alpha, InputBase, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CustomAvatar from '../CustomAvatar';
 import FlexContainer from '../FlexContainer';
 import { Search as SearchIcon } from '@mui/icons-material';
@@ -64,7 +64,7 @@ function GreetingHeader() {
                     <Typography variant='p'>Last Login <span>{lastLoggedIn ? lastLoggedIn : "9th October, 2022. 08:35 PM"}</span></Typography>
                 </Stack>
             </FlexContainer>
-            <Search>
+            {/* <Search>
                 <SearchIconWrapper>
                     <SearchIcon />
                 </SearchIconWrapper>
@@ -72,7 +72,7 @@ function GreetingHeader() {
                     placeholder="Search…"
                     inputProps={{ 'aria-label': 'search' }}
                 />
-            </Search>
+            </Search> */}
         </FlexContainer>
     )
 }
