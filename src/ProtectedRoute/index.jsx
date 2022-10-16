@@ -11,14 +11,16 @@ function ProtectedRoute({ children }) {
     const isLoggedIn = useSelector(state => state.login.isLoggedIn)
 
     useEffect(() => {
-        if (!isLoggedIn) {
+        if (isLoggedIn === false) {
             setNotAuthorized(true)
+            console.log(loggedUserDetails, loggedUserDetails?.isLoggedIn);
         }
+
 
     }, [loggedUserDetails, isLoggedIn])
 
     if (notAuthorized) {
-        return <Navigate to="/" replace />
+        return <Navigate to="/login" />
     }
 
     return children
