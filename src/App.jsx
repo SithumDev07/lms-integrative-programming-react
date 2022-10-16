@@ -99,14 +99,16 @@ function App() {
           <Route path="/" element={<Portal />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+
           <Route
             path="/dashboard"
             element={
-              
 
+              <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
 
-              
+
             }
           />
           <Route path="courses" element={<Courses />} />
@@ -114,10 +116,10 @@ function App() {
           <Route path="/portal" element={<Portal />} />
           <Route path="/createannouncement" element={<Announcement />} />
           <Route path="/announcement" element={<AnnouncementsMain />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/teachdash" element={<TeacherDashboard />} />
           <Route path="/evaluate" element={<Evaluate />} />
           <Route path="/teachercourse" element={<TeacherCourse />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
