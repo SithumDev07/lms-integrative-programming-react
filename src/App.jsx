@@ -99,18 +99,18 @@ function App() {
           <Route path="/" element={<Portal />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <ProtectedRoute>
-            <Route
-              path="/dashboard"
-              element={
 
+          <Route
+            path="/dashboard"
+            element={
 
+              <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
 
 
-              }
-            />
-          </ProtectedRoute>
+            }
+          />
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
           <Route path="/portal" element={<Portal />} />
