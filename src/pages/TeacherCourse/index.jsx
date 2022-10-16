@@ -17,26 +17,25 @@ import { FlexContainer } from "../../components";
 import AssigmentTab from "../../components/AssigmentTab";
 import MarkSelect from "../../components/MarksSelect";
 import Stack from "@mui/material/Stack";
-import CustomizedButton from "../../components";
 
 function createData(studentid, marks) {
   return { studentid, marks };
 }
 
 const rows = [
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 9.0),
-  createData("IM-2019-xx", "What is ISM?", 16.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 59),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
-  createData("IM-2019-xx", "What is ISM?", 6.0),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
+  createData("IM-2019-xx"),
 ];
 
 export default function TeacherCourse() {
@@ -84,9 +83,9 @@ export default function TeacherCourse() {
                   <TableCell align="center">{<MarkSelect />}</TableCell>
                   <TableCell align="center">
                     {
-                      <Button variant="contained" align="center">
-                        Evaluate
-                      </Button>
+                      <Stack direction="row" align="center">
+                        <Button variant="contained">Evaluate</Button>
+                      </Stack>
                     }
                   </TableCell>{" "}
                 </TableRow>

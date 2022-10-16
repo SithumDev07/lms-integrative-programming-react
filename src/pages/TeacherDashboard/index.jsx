@@ -11,6 +11,7 @@ import { HIGHLIGHTED_COURSES } from "../../data/courses";
 import { AppBar as CustomAppBar, CustomDrawer } from "../../lib";
 import { DrawerHeader } from "../../lib/CustomDrawer";
 import StatBox from "../../components/StatBox";
+
 export default function TeacherDashboard() {
   const theme = useTheme();
 

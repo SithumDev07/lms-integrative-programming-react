@@ -14,14 +14,25 @@ import { AppBar as CustomAppBar, CustomDrawer } from "../../lib";
 import { DrawerHeader } from "../../lib/CustomDrawer";
 import Typography from "@mui/material/Typography";
 import { FlexContainer } from "../../components";
+
 function createData(studentid, marks) {
   return { studentid, marks };
 }
 
 const rows = [
-  createData("IM-2019-xx", 159, 6.0, 24, 4.0),
-  createData("IM-2019-xx", 237, 9.0, 37, 4.3),
-  createData("IM-2019-xx", 262, 16.0, 24, 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 9.0),
+  createData("IM-2019-xx", 16.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 59),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
+  createData("IM-2019-xx", 6.0),
 ];
 
 export default function Evaluate() {
@@ -48,8 +59,8 @@ export default function Evaluate() {
             <TableHead>
               <TableRow>
                 <TableCell>Student ID</TableCell>
-                <TableCell align="right">Assigment Marks</TableCell>
-                <TableCell align="right">Edit Marks</TableCell>
+                <TableCell align="center">Assigment Marks</TableCell>
+                <TableCell align="center">Edit Marks</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -61,7 +72,14 @@ export default function Evaluate() {
                   <TableCell component="th" scope="row">
                     {row.studentid}
                   </TableCell>
-                  <TableCell align="right">{row.marks}</TableCell>
+                  <TableCell align="center">{row.marks}</TableCell>
+                  <TableCell align="center">
+                    {
+                      <Button variant="contained" align="center">
+                        Edit Marks
+                      </Button>
+                    }
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
