@@ -62,6 +62,9 @@ export default function Evaluate() {
                     {row.studentid}
                   </TableCell>
                   <TableCell align="right">{row.marks}</TableCell>
+                  <TableRow>
+                    <Button variant="outlined">Primary</Button>
+                  </TableRow>
                 </TableRow>
               ))}
             </TableBody>
