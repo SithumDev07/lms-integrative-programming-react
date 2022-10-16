@@ -4,3 +4,4 @@ export { default as GreetingHeader } from "./GreetingHeader";
 export { default as Calendar } from "./Calendar";
 export { default as CustomizedButton } from "./CustomizedButton";
 export { default as HighlightedCourse } from "./HighlightedCourse";
+export { default as PortalCard } from "./PortalCard";

@@ -19,6 +19,7 @@ import ProtectedRoute, {
   StudentProtectedRoute,
   SuperAdminProtectedRoute,
 } from "./ProtectedRoute";
+import Portal from "./pages/Portal";
 
 function App() {
   const isToastifyVisible = useSelector((state) => state.error.shouldShow);
@@ -101,6 +102,7 @@ function App() {
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:courseId" element={<Course />} />
           <Route path="/announcement" element={<Announcement />} />
+          <Route path="/portal" element={<Portal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
