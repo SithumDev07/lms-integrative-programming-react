@@ -16,9 +16,11 @@ import Typography from "@mui/material/Typography";
 import { FlexContainer } from "../../components";
 import AssigmentTab from "../../components/AssigmentTab";
 import MarkSelect from "../../components/MarksSelect";
+import Stack from "@mui/material/Stack";
+import CustomizedButton from "../../components";
 
-function createData(studentid, question, answer, marks) {
-  return { studentid, question, answer, marks };
+function createData(studentid, marks) {
+  return { studentid, marks };
 }
 
 const rows = [
@@ -66,9 +68,8 @@ export default function TeacherCourse() {
             <TableHead>
               <TableRow>
                 <TableCell>Student ID</TableCell>
-                <TableCell>Quenstion</TableCell>
-                <TableCell>Answer</TableCell>
                 <TableCell align="center">Assigment Marks</TableCell>
+                <TableCell align="center">Evaluate Students</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -80,13 +81,14 @@ export default function TeacherCourse() {
                   <TableCell component="th" scope="row">
                     {row.studentid}
                   </TableCell>
-                  <TableCell component="th" scope="row">
-                    {row.question}
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    {row.answer}
-                  </TableCell>
                   <TableCell align="center">{<MarkSelect />}</TableCell>
+                  <TableCell align="center">
+                    {
+                      <Button variant="contained" align="center">
+                        Evaluate
+                      </Button>
+                    }
+                  </TableCell>{" "}
                 </TableRow>
               ))}
             </TableBody>

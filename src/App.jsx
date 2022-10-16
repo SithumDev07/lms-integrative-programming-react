@@ -102,11 +102,11 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute>
-                {/* <StudentProtectedRoute> */}
+              
+
                 <Dashboard />
-                {/* </StudentProtectedRoute> */}
-              </ProtectedRoute>
+
+              
             }
           />
           <Route path="courses" element={<Courses />} />
