@@ -57,6 +57,8 @@ function App() {
   useEffect(() => {
     setToken(localStorage.getItem("token"))
 
+    console.log("Token is here");
+
     if (token) {
       store.dispatch(tokenSetter({
         isLoggedIn: true,
@@ -78,9 +80,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={
             <ProtectedRoute>
-              <StudentProtectedRoute>
-                <Dashboard />
-              </StudentProtectedRoute>
+              {/* <StudentProtectedRoute> */}
+              <Dashboard />
+              {/* </StudentProtectedRoute> */}
             </ProtectedRoute>
           } />
           <Route path="courses" element={<Courses />} />
